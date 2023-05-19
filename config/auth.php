@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [                 // 追記部分
+            'driver' => 'session',
+            'provider' => 'admins', // 下記でproviderを設定する
+        ],
     ],
 
     /*
@@ -65,10 +69,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [                           //追加部分
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
     ],
 
     /*
@@ -92,6 +96,12 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admins',                 // 追加部分
+            'table' => 'admin_password_resets',
+            'expire' => 60, // 期限60日間
+            'throttle' => 60, // ログイン失敗時に制限をかける(60秒)
         ],
     ],
 

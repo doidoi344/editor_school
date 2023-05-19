@@ -18,13 +18,15 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/dashboard';
+    // Adminのログイン画面にログインしたらAdminのdashboardへリダイレクトされる
+    public const ADMIN_HOME = '/admin/dashboard';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      *
      * @return void
      */
-    public function boot()
+    public function boot() // 画面とサービスプロバイダの読み込み後に実行される
     {
         $this->configureRateLimiting();
 
