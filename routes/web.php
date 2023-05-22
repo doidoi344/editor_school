@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TopController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileController as ProfileOfAdminController;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // 一般ユーザー用
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [TopController::class, 'index'])->name('top.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

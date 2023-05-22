@@ -1,0 +1,226 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+.wrapper {
+    max-width: 1280x;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+#big-bg {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background-image: url(/images/top_bg.png);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+#big-bg::after{
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.3;
+}
+header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 10px;
+    background: #fff;
+    box-sizing: border-box;
+}
+.h-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    height: 40px;
+}
+.logo img {
+    width: 200px; 
+}
+.buttons {
+    display: flex;
+}
+.login-button, .signup-button {
+    margin-left: 10px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.login-button:hover, .signup-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+/*ハンバーガーメニュー */
+.navigation {
+    display: flex;
+  }
+  .nav-link {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: white;
+    background-color: blue;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .nav-link:hover {
+    background-color: darkblue;
+  }
+
+  
+  .hamburger-menu {
+    display: none;
+    z-index: 200;
+  }
+  
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  .hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hamburger-icon.close span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger-icon.close span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-icon.close span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .hamburger-navigation {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: auto;
+    display: none;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+  }
+  .hamburger-links {
+    display: flex;
+    flex-direction: column;
+    padding-top: 130px;
+    padding-bottom: 50px;
+  }
+  .s-nav-link {
+    text-align: center;
+    margin-bottom: 40px;
+    text-decoration: underline;
+    text-decoration-color: white; /* 下線の色を赤に設定 */
+    text-decoration-thickness: 2px; /* 下線の太さを2ピクセルに設定 */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white
+  }
+/* 背景画像上のテキスト */
+#text-container {
+    position: absolute;
+    top: 22%; /* 画面上から */
+    left: 10%; /* 画面左から */
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 555;
+}
+#text-container.fade-in {
+    opacity: 1;
+    animation: slideIn 1.5s ease-in-out; /* 下から上への動きを追加 */
+}
+@keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(100%); /* 下方向に100%移動 */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* 元の位置に戻る */
+    }
+}
+#text-container  h1{
+    color: white;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 3;
+    text-align: left;
+}
+
+/* レスポンシブ対応 */
+
+/* タブレット用のスタイル */
+@media (max-width: 768px) {
+    .buttons{
+        display: none;
+    }
+    #text-container  h1{
+        color: white;
+        font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    #text-container {
+        top: 50%; /* 画面上から */
+        left: 5%; /* 画面左から */
+    }
+    .navigation {
+        display: none;
+      }
+    
+      .hamburger-menu {
+        display: block;
+      }
+    
+      .hamburger-navigation {
+        display: none;
+      }
+
+}
+  
+/* スマートフォン用のスタイル */
+@media (max-width: 480px) {
+    #text-container  h1{
+        color: white;
+        font-size: 2.25rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    #big-bg {
+        min-height: 100vh;
+    }
+    #text-container {
+        top: 50%; /* 画面上から */
+        left: 5%; /* 画面左から */
+    }
+}
