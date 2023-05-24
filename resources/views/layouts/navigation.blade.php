@@ -8,7 +8,7 @@
                     <div style=" width:200px;">
                         <a href="{{ route('admin.dashboard') }}">
                             <!-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> -->
-                            <img src="{{ asset('images/logo_wide.png') }}" alt="logo_wide">
+                            <img src="{{ asset('images/logo_wide.png') }}" alt="logo">
                         </a>
                     </div>
                 </div>

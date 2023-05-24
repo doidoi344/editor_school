@@ -18,13 +18,13 @@
             <header class="header">
                 <div class="h-inner wrapper">
                     <div class="logo">
-                        <img src="{{ asset('images/logo.png') }}" alt="logo"><!-- ロゴイメージのコンテンツ -->
+                        <img src="{{ asset('images/logo.png') }}" alt="logo">
                     </div>
                     <nav class="navigation">
                     @if (Route::has('login'))
                         <div>
                             @auth
-                                <a href="{{ url('/dashboard') }}">Dashboard</a>
+                                <a href="{{ url('/main') }}" class="nav-link">予約画面へ</a>
                             @else
                                 <a href="{{ route('login') }}" class="nav-link">ログイン</a>
                                 @if (Route::has('register'))
@@ -45,36 +45,23 @@
             </header>
             <nav class="hamburger-navigation">
                 @if (Route::has('login'))
-                        <div class="hamburger-links">
-                            @auth
-                                <a href="{{ url('/dashboard') }}">Dashboard</a>
-                            @else
-                                <a href="{{ route('login') }}" class="s-nav-link">ログイン</a>
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="s-nav-link">新規登録</a>
-                                @endif
-                            @endauth
-                        </div>
+                    <div class="hamburger-links">
+                        @auth
+                            <a href="{{ url('/main') }}" class="s-nav-link">予約画面へ</a>
+                        @else
+                            <a href="{{ route('login') }}" class="s-nav-link">ログイン</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="s-nav-link">新規登録</a>
+                            @endif
+                        @endauth
+                    </div>
                 @endif
             </nav>
             <div id="text-container">
                 <h1>Editor School<br>講座予約システム</h1>
             </div>
         </div>
-
         <!-- js読み込み -->
-        <script src="{{ asset('js/main.js') }}" defer></script>
+        <script src="{{ asset('js/top.js') }}" defer></script>
     </body>
 </html>
-<!-- @if (Route::has('login'))
-                        <div>
-                            @auth
-                                <a href="{{ url('/dashboard') }}">Dashboard</a>
-                            @else
-                                <a href="{{ route('login') }}" class="login-button">ログイン</a>
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="signup-button">新規登録</a>
-                                @endif
-                            @endauth
-                        </div>
-                    @endif -->

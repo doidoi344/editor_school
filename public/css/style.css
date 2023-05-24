@@ -3,12 +3,29 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: #333;
+    /* 方眼紙模様に必須のスタイル */
+    background-image: linear-gradient(0deg, transparent calc(100% - 1px), #f0f0f0 calc(100% - 1px)),
+    linear-gradient(90deg, transparent calc(100% - 1px), #f0f0f0 calc(100% - 1px));
+    background-size: 16px 16px;
+    background-repeat: repeat;
+    background-position: center center;
 }
+/* 共通設定
+---------------------------------------------------- */
 .wrapper {
     max-width: 1280x;
     margin: 0 auto;
     padding: 0 4%;
 }
+ul {
+  list-style: none;
+}
+a {
+    text-decoration: none;
+}
+/* トップ画面(top)
+---------------------------------------------------- */
+/* 背景画像 */
 #big-bg {
     position: relative;
     z-index: 1;
@@ -29,15 +46,17 @@ body {
     background-color: #000;
     opacity: 0.3;
 }
-header {
+/* ヘッダー */
+.header {
     position: fixed;
     z-index: 10;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 15px 10px;
+    padding: 20px 10px;
     background: #fff;
     box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .h-inner {
     display: flex;
@@ -50,6 +69,7 @@ header {
 .logo img {
     width: 200px; 
 }
+/* ログイン・新規登録ボタン */
 .buttons {
     display: flex;
 }
@@ -69,29 +89,26 @@ header {
 /*ハンバーガーメニュー */
 .navigation {
     display: flex;
-  }
-  .nav-link {
+}
+.nav-link {
     margin-left: 10px;
     text-decoration: none;
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: bold;
     color: white;
     background-color: blue;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
-  }
-  .nav-link:hover {
+}
+.nav-link:hover {
     background-color: darkblue;
-  }
-
-  
-  .hamburger-menu {
+}
+.hamburger-menu {
     display: none;
     z-index: 200;
-  }
-  
-  .hamburger-icon {
+}
+.hamburger-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,66 +116,68 @@ header {
     width: 30px;
     height: 20px;
     cursor: pointer;
-  }
-  
-  .hamburger-icon span {
+}
+.hamburger-icon span {
     width: 100%;
     height: 2px;
     background-color: black;
     transition: all 0.3s ease-in-out;
-  }
-  
-  .hamburger-icon.close span:nth-child(1) {
+}
+.hamburger-icon.close span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
-  }
-  
-  .hamburger-icon.close span:nth-child(2) {
+}
+.hamburger-icon.close span:nth-child(2) {
     opacity: 0;
-  }
-  
-  .hamburger-icon.close span:nth-child(3) {
+}
+.hamburger-icon.close span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-  }
-  
-  .hamburger-navigation {
+}
+.hamburger-navigation {
     position: absolute;
     top: 0;
     right: 0;
-    width: 30%;
+    width: 100%;
     height: auto;
     display: none;
-    z-index: 5;
-    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 8;
+    background-color: rgba(0, 0, 0, 0.7);
     flex-direction: column;
-  }
-  .hamburger-links {
+}
+.hamburger-links {
     display: flex;
     flex-direction: column;
     padding-top: 130px;
-    padding-bottom: 50px;
-  }
-  .s-nav-link {
+    padding: 130px 20px 20px 40px;
+}
+
+.hamburger-links form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.s-nav-link {
     text-align: center;
     margin-bottom: 40px;
-    text-decoration: underline;
-    text-decoration-color: white; /* 下線の色を赤に設定 */
-    text-decoration-thickness: 2px; /* 下線の太さを2ピクセルに設定 */
+    border: 2px white solid;
+    text-decoration-color: white; 
+    text-decoration-thickness: 2px; 
     font-size: 1.5rem;
     font-weight: bold;
-    color: white
-  }
+    color: white;
+}
 /* 背景画像上のテキスト */
 #text-container {
     position: absolute;
-    top: 22%; /* 画面上から */
-    left: 10%; /* 画面左から */
+    top: 25%; 
+    left: 10%; 
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     z-index: 555;
 }
+/* 下から上への動きを追加 */
 #text-container.fade-in {
     opacity: 1;
-    animation: slideIn 1.5s ease-in-out; /* 下から上への動きを追加 */
+    animation: slideIn 1.5s ease-in-out; 
 }
 @keyframes slideIn {
     0% {
@@ -172,17 +191,273 @@ header {
 }
 #text-container  h1{
     color: white;
-    font-size: 3.5rem;
+    font-size: 5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 3;
     text-align: left;
 }
+/* メイン画面(main)
+---------------------------------------------------- */
+.main-header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 10px;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.main-h-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* ログアウトボタン */
+.logout-button {
+  margin-left: 10px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: blue;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
 
-/* レスポンシブ対応 */
+.logout-button:hover {
+  background-color: darkblue;
+}
+/* Menuとカレンダー */
+#primary-container {
+  margin-top: 110px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+.contents-title {
+    max-width: 100%;
+    background-color: #000066;
+}
+#menu-title{
+    text-align: center;
+}
+.contents-title h2 {
+    padding: 10px 30px;
+    font-size: 20px;
+    color: #fff;
+}
+#primary-container aside{
+  width:15%;
+  height: 50%;
+  border: solid 2px #000033;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.side-container {
+  text-align: center;
+}
+.side-container li{
+    background-color: rgba(204, 204, 255, 0.5);
+    border-top: #000066 solid 1px;
+    text-align: center;
+}
+.sidebar-link {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+.sidebar-link:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#primary-container section{
+  width:83%;
+  height: auto;
+  border: solid 2px #000033;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.calendar-container {
+  text-align: center;
+  padding: 20px 30px;
+  height: 450px;
+  overflow: auto; /* カレンダーがはみ出た場合にスクロールバーを表示 */
+}
+/* 予約フォーム */
+#reservationForm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#reservationForm-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+.reservationForm-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+}
+.reservationForm-container h3 {
+    margin-bottom: 10px;
+}
+.reservationForm-container .form-group {
+    margin-bottom: 15px;
+}
+.reservationForm-container label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.reservationForm-container input[type="text"],
+.reservationForm-container select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.reservationForm-container button[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.reservationForm-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* FullCalendar */
+#calendar {
+    font-size: 14px; /* カレンダーの文字サイズを調整 */
+}
+th.fc-day-sat .fc-col-header-cell-cushion {
+    color: blue;
+}
+th.fc-day-sun .fc-col-header-cell-cushion{
+    color: red;
+}
+td.fc-day-sat {
+    background-color: #eaf4ff;
+}
+td.fc-day-sun {
+    background-color: #ffeaea;
+}
+.fc-col-header-cell-cushion {
+    color: black;
+}
+.fc-daygrid-day-number {
+    color: black;
+}
+td.fc-day-sat .fc-daygrid-day-number {
+    color: blue;
+}
+td.fc-day-sun .fc-daygrid-day-number {
+    color: red;
+}
+td.fc-timegrid-slot {
+    height: 3em !important;
+    border-bottom: 0 !important;
+}
+.fc-event-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.fc-event-main {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: red;
+}
+.fc-event-time {
+    display: none;
+}
+.fc-event-title {
+    color: #fff; /* 文字色 */
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+/* フッター */
+.main-footer {
+    background-color: #f2f2f2;
+}
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    padding: 50px 70px;
+    width: 100%;
+}
+.footer-info {
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+.footer-business-hours {
+    width: 100%;
+    border-collapse: collapse;
+}
+.footer-business-hours th,
+.footer-business-hours td {
+    padding: 10px;
+    text-align: center;
+}
+.footer-business-hours th {
+    background-color: #333;
+    color: #fff;
+}
+.footer-business-hours tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.footer-business-hours tr:hover {
+    background-color: #ddd;
+} 
+.footer-business-hours td {
+    border: 1px solid #ccc;
+} 
+.footer-business-hours td.yes {
+    color: green;
+}
+.footer-business-hours td.no {
+    color: red;
+}
+.footer-bottom {
+    background-color: #999;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
 
+/* レスポンシブ対応
+---------------------------------------------------- */
 /* タブレット用のスタイル */
 @media (max-width: 768px) {
+    /* トップ画面(top)
+    ---------------------------------------------------- */
     .buttons{
         display: none;
     }
@@ -197,20 +472,43 @@ header {
     }
     .navigation {
         display: none;
-      }
-    
-      .hamburger-menu {
+    }
+  
+    .hamburger-menu {
         display: block;
-      }
-    
-      .hamburger-navigation {
+    }
+  
+    .hamburger-navigation {
         display: none;
-      }
-
+    }
+    /* メイン画面(main)
+    ---------------------------------------------------- */
+    /* 予約フォーム */
+    .reservationForm-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 500px;
+        text-align: center;
+    }
+    /* フッター */  
+    .footer-inner {
+        display: flex;
+        flex-direction: column;
+        padding: 15px 4%;
+        font-size: 0.75rem;
+    }
+    .business-info {
+        margin-top: 20px;
+    }
+    .footer-info {
+        text-align: left;
+    }
 }
   
-/* スマートフォン用のスタイル */
 @media (max-width: 480px) {
+    /* トップ画面(top)
+    ---------------------------------------------------- */
     #text-container  h1{
         color: white;
         font-size: 2.25rem;
@@ -223,4 +521,58 @@ header {
         top: 50%; /* 画面上から */
         left: 5%; /* 画面左から */
     }
+
+    /* メイン画面(main)
+    ---------------------------------------------------- */
+    /* 予約フォーム */
+    .reservationForm-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+    }
+    /* Menuとカレンダー */
+    #primary-container {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    #primary-container aside{
+        width:100%;
+        height: 50%;
+        margin-bottom: 2rem;
+    }
+    #primary-container section{
+        width:100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-bottom: 2rem;
+    }
+    .calendar-container {
+        width: 100%;
+        display: inline-block;
+    }
+      /* FullCalendar */
+    #calendar {
+        font-size: 0.75em; /* カレンダーの文字サイズを調整 */
+    }
+    .fc-media-screen {
+        width: 450px;
+    }
+    /* フッター */
+    .footer-inner {
+        display: flex;
+        flex-direction: column;
+        padding: 15px 4%;
+        font-size: 0.75rem;
+    }
+    .business-info {
+        margin-top: 20px;
+    }
+    .footer-info {
+        text-align: left;
+    }
 }
+
