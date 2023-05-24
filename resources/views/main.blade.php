@@ -125,8 +125,8 @@
             <div class="footer-inner wrapper">
                 <div class="footer-info">
                     <p>会社名:Editor School株式会社</p>
-                    <p>住所:〒123-4567 東京都〇〇区〇〇1-2-3</p>
-                    <p>TEL:0120-1111-1111</p>
+                    <p>住所:〒123-4567 東京都〇〇区〇〇〇</p>
+                    <p>TEL:0120-〇〇〇〇-〇〇〇〇</p>
                 </div>
                 <div class="business-info">
                     <table class="footer-business-hours">
