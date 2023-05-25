@@ -133,7 +133,7 @@ a {
     transform: translateY(-8px) rotate(-45deg);
 }
 .hamburger-navigation {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 100%;
@@ -222,7 +222,7 @@ a {
   font-weight: bold;
   color: white;
   background-color: blue;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border-radius: 5px;
   transition: background-color 0.3s ease-in-out;
 }
@@ -239,7 +239,7 @@ a {
 }
 .contents-title {
     max-width: 100%;
-    background-color: #000066;
+    background-color: #0000cd;
 }
 #menu-title{
     text-align: center;
@@ -252,17 +252,15 @@ a {
 #primary-container aside{
   width:15%;
   height: 50%;
-  border: solid 2px #000033;
+  border: solid 1px #000033;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 .side-container {
   text-align: center;
 }
 .side-container li{
-    background-color: rgba(204, 204, 255, 0.5);
     border-top: #000066 solid 1px;
     text-align: center;
 }
@@ -274,17 +272,17 @@ a {
     text-decoration: none;
 }
 .sidebar-link:hover {
-    background-color: #0056b3;
+    background-color: navy;
     color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
 }
 #primary-container section{
   width:83%;
   height: auto;
-  border: solid 2px #000033;
+  border: solid 1px #000033;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
   overflow: hidden;
 }
 .calendar-container {
@@ -385,11 +383,11 @@ td.fc-timegrid-slot {
 }
 .fc-v-event {
     border: none !important;
+    background-color: lime !important; 
+    opacity: 0.6;
 }
 .fc-event-main {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background-color: red;
-    border-radius: 8px;
+    border-radius: 8% !important; 
 }
 .fc-event-time {
     display: none;
@@ -397,8 +395,114 @@ td.fc-timegrid-slot {
 .fc-event-title {
     color: #fff; /* 文字色 */
     font-weight: bold;
-    font-size: 14px;
-    letter-spacing: 2px;
+    font-size: 16px;
+    letter-spacing: 5px;
+}
+/* 予約履歴画面(reservations.index)
+---------------------------------------------------- */
+#secoundary-container {
+    min-height: 100vh;
+    margin-top: 110px;
+}
+.reservation-history-container {
+    margin: 20px;
+    padding: 30px;
+    background-color: transparent;
+    border-radius: 6px;
+}
+.reservation-history-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+.reservation-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+.reservation-history-table th {
+    padding: 10px;
+    text-align: center;
+}
+.reservation-history-table td {
+    padding: 12px 0;
+    text-align: center;
+}
+.reservation-history-table th {
+    background-color: #0000cd;
+    font-weight: bold;
+    color: #fff;
+}
+.reservation-history-table tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.reservation-history-table tbody tr:nth-child(odd) {
+    background-color: #eaf0f5;
+}
+.reservation-history-table td {
+    border-bottom: 1px solid #ddd;
+    color: #555;
+}
+.reservation-history-table td{
+    width: 10%;
+}
+
+.cancel-button {
+    padding: 8px 20px;
+    background-color: #ff5a5f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cancel-button:hover {
+    background-color: #ff4146;
+}
+/* キャンセル完了画面(reservations.destroy)
+---------------------------------------------------- */
+#secondary-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.complete-sign {
+    text-align: center;
+}
+
+.complete-sign h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+}
+.complete-sign h1 span{
+    color: red;
+    font-size: 2.5rem;
+    padding: 0 15px;
+}
+
+.complete-sign .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.complete-sign .btn:hover {
+    background-color: #000;
+    color: #fff;
 }
 /* フッター */
 .main-footer {
@@ -408,7 +512,7 @@ td.fc-timegrid-slot {
     display: flex;
     justify-content: space-between;
     align-items: top;
-    padding: 50px 70px;
+    padding: 70px 70px;
     width: 100%;
 }
 .footer-info {
@@ -425,14 +529,14 @@ td.fc-timegrid-slot {
     text-align: center;
 }
 .footer-business-hours th {
-    background-color: #000066;
-    color: #fff;
-}
+    background-color: transparent;
+    color: #333;
+}   
 .footer-business-hours tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-.footer-business-hours tr:hover {
-    background-color: #ddd;
+.footer-business-hours th {
+    border: 1px solid #ccc;
 } 
 .footer-business-hours td {
     border: 1px solid #ccc;
@@ -489,40 +593,60 @@ td.fc-timegrid-slot {
         max-width: 500px;
         text-align: center;
     }
-        /* Menuとカレンダー */
-        #primary-container {
-            flex-direction: column;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-        
-        #primary-container aside{
-            width:100%;
-            height: 50%;
-            margin-bottom: 2rem;
-        }
-        #primary-container section{
-            width:100%;
-            overflow-x: auto;
-            white-space: nowrap;
-            margin-bottom: 2rem;
-        }
-        .calendar-container {
-            width: 100%;
-            display: inline-block;
-        }
-          /* FullCalendar */
-        #calendar {
-            font-size: 0.85rem; /* カレンダーの文字サイズを調整 */
-        }
-        .fc-media-screen {
-            width: 750px;
-        }
+    /* Menuとカレンダー */
+    #primary-container {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    #primary-container aside{
+        width:100%;
+        height: 50%;
+        margin-bottom: 2rem;
+    }
+    #primary-container section{
+        width:100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-bottom: 2rem;
+    }
+    .calendar-container {
+        width: 100%;
+        display: inline-block;
+    }
+    .contents-title {
+        text-align: center;
+    }
+    /* FullCalendar */
+    #calendar {
+        font-size: 0.85rem; /* カレンダーの文字サイズを調整 */
+    }
+    .fc-media-screen {
+        width: 750px;
+    }
+    .fc-event-title {
+        color: #fff; /* 文字色 */
+        font-weight: bold;
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+    /* 予約履歴画面(reservations.index)
+    ---------------------------------------------------- */
+    .reservation-history-container {
+        padding: 0;
+        font-size: 0.95rem;
+    }
+    .cancel-button {
+        padding: 6px 10px;
+        background-color: #ff5a5f;
+        display: block;
+    }
     /* フッター */  
     .footer-inner {
         display: flex;
         flex-direction: column;
-        padding: 15px 4%;
+        padding: 50px 4%;
         font-size: 0.85rem;
     }
     .business-info {
@@ -591,11 +715,32 @@ td.fc-timegrid-slot {
     .fc-media-screen {
         width: 450px;
     }
+    /* 予約履歴画面(reservations.index)
+    ---------------------------------------------------- */
+    .reservation-history-container {
+        padding: 0;
+        font-size: 0.85rem;
+    }
+    .cancel-button {
+        padding: 4px 8px;
+        background-color: #ff5a5f;
+        font-size: 0.8rem;
+    }
+    /* キャンセル完了画面(reservations.destroy)
+    ---------------------------------------------------- */
+    .complete-sign h1 {
+        font-size: 1.3rem;
+    }
+    .complete-sign h1 span{
+        color: red;
+        font-size: 1.6rem;
+        padding: 0 5px;
+    }
     /* フッター */
     .footer-inner {
         display: flex;
         flex-direction: column;
-        padding: 15px 4%;
+        padding: 50px 4%;
         font-size: 0.75rem;
     }
     .business-info {
