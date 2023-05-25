@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     },
     locale: 'ja', // ロケールを日本語に設定
+    firstDay: 1, // 月曜日を週の先頭に設定
     slotMinTime: '08:00:00', // 例: 8時から
     slotMaxTime: '20:00:00', // 例: 19時まで
     slotDuration: '01:00:00', // スロットの時間間隔を1時間に設定
