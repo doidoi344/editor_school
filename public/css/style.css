@@ -43,8 +43,8 @@ a {
     height:100%;
     top: 0;
     left: 0;
-    background-color: #000;
-    opacity: 0.3;
+    background-color: #fff;
+    opacity: 0.1;
 }
 /* ヘッダー */
 .header {
@@ -56,7 +56,7 @@ a {
     padding: 15px 10px;
     background: #fff;
     box-sizing: border-box;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 .h-inner {
     display: flex;
@@ -169,7 +169,7 @@ a {
 /* 背景画像上のテキスト */
 #text-container {
     position: fixed;
-    top: 25%; 
+    top: 30%; 
     left: 10%; 
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
@@ -193,7 +193,7 @@ a {
 #text-container  h1{
     color: white;
     font-size: 5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     position: relative;
     z-index: 3;
     text-align: left;
@@ -239,7 +239,7 @@ a {
 }
 .contents-title {
     max-width: 100%;
-    background-color: #0000cd;
+    background: linear-gradient(45deg, #2af598 0%, #009efd 100%);
 }
 #menu-title{
     text-align: center;
@@ -248,21 +248,24 @@ a {
     padding: 10px 30px;
     font-size: 20px;
     color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 #primary-container aside{
   width:15%;
   height: 50%;
-  border: solid 1px #000033;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  border-radius: 6px;
 }
 .side-container {
   text-align: center;
 }
 .side-container li{
-    border-top: #000066 solid 1px;
     text-align: center;
+}
+#line {
+    border-top: lightgrey solid 0.5px;
 }
 .sidebar-link {
     display: inline-block;
@@ -273,17 +276,17 @@ a {
 }
 .sidebar-link:hover {
     background-color: navy;
+    transition: all ease-in-out 0.3s;
     color: #ffffff;
     opacity: 0.9;
 }
 #primary-container section{
   width:83%;
   height: auto;
-  border: solid 1px #000033;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  border-radius: 6px;
 }
 .calendar-container {
   text-align: center;
@@ -338,7 +341,7 @@ a {
     border: 1px solid #ccc;
 }
 .reservationForm-container button[type="submit"] {
-    background-color: #00ff7f;
+    background-color: lime;
     color: #ffffff;
     padding: 10px 20px;
     border: none;
@@ -381,10 +384,24 @@ td.fc-timegrid-slot {
   justify-content: center;
   height: 100%;
 }
+.fc-button-primary {
+    background-color: white !important;
+    color: #000 !important;
+    font-weight: bold !important;
+}
+.fc-button-primary:hover {
+    background-color: navy !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out !important;
+}
+.fc-button-primary:focus {
+    outline: 1px !important;
+}
+
 .fc-v-event {
     border: none !important;
     background-color: lime !important; 
-    opacity: 0.6;
+    opacity: 0.7;
 }
 .fc-event-main {
     border-radius: 8% !important; 
@@ -431,7 +448,7 @@ td.fc-timegrid-slot {
     text-align: center;
 }
 .reservation-history-table th {
-    background-color: #0000cd;
+    background-color: royalblue;
     font-weight: bold;
     color: #fff;
 }
@@ -486,24 +503,49 @@ td.fc-timegrid-slot {
     font-size: 2.5rem;
     padding: 0 15px;
 }
-
-.complete-sign .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
+.btn-outer1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.btn-outer2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
     border-radius: 8px;
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    border: 2px #333 solid;
+    transition: all 0.2s ease-in-out;
+}
+.btn-outer2:hover {
+    background-color: #000;
 }
 
-.complete-sign .btn:hover {
-    background-color: #000;
+.btn-outer2:hover a {
     color: #fff;
 }
+.btn-outer2:hover .material-icons-outlined {
+    background-color: #fff;
+    color: #333;
+    border: #fff solid 2px;
+    transform: translateX(-8px);
+}
+.btn-outer2 a{
+    padding: 10px 20px 10px 0;
+    display: inline-block;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+.btn-outer2 .material-icons-outlined{
+    border: #000 solid 2px;
+    color: #333;
+    border-radius: 50%;
+    margin-right: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
 /* フッター */
 .main-footer {
     background-color: #f2f2f2;
@@ -519,9 +561,31 @@ td.fc-timegrid-slot {
     font-size: 1.15rem;
     font-weight: bold;
 }
+.footer-logo img{
+    width: 150px;
+}
+.footer-sub-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+.footer-sub-title span {
+    position: relative;
+    padding-bottom: 5px; /* 適宜調整してください */
+}
+.footer-sub-title span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1.25px;
+    background-color: #333; /* 下線の色を設定してください */
+  }
 .footer-business-hours {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 30px;
 }
 .footer-business-hours th,
 .footer-business-hours td {
@@ -748,6 +812,9 @@ td.fc-timegrid-slot {
     }
     .footer-info {
         text-align: left;
+    }
+    .footer-info p{
+        font-size: 1rem;
     }
     .footer-bottom {
         font-size: 0.75rem;

@@ -69,7 +69,7 @@
                         <li>
                             <a class="sidebar-link" href="{{ route('reservations.index') }}">予約履歴</a>
                         </li>
-                        <li>
+                        <li id="line">
                             <a class="sidebar-link" href="">講座一覧</a>
                         </li>
                     </ul>
@@ -124,11 +124,16 @@
         <footer class="main-footer">
             <div class="footer-inner wrapper">
                 <div class="footer-info">
+                    <h3 class="footer-sub-title"><span>会社情報</span></h3>
+                    <div class="footer-logo">
+                        <img src="{{ asset('images/logo.png') }}" alt="logo">
+                    </div>
                     <p>会社名:Editor School株式会社</p>
                     <p>住所:〒123-4567 東京都〇〇区〇〇〇</p>
                     <p>TEL:0120-〇〇〇〇-〇〇〇〇</p>
                 </div>
                 <div class="business-info">
+                    <h3 class="footer-sub-title"><span>営業日時のお知らせ</span></h3>
                     <table class="footer-business-hours">
                         <tr>
                             <th>営業時間</th>
@@ -143,14 +148,14 @@
                         </tr>
                         <tr>
                             <td>9:00 - 18:00</td>
-                            <td>〇</td>
-                            <td>〇</td>
-                            <td>〇</td>
-                            <td>〇</td>
-                            <td>〇</td>
-                            <td>×</td>
-                            <td>×</td>
-                            <td>×</td>
+                            <td>営業</td>
+                            <td>営業</td>
+                            <td>営業</td>
+                            <td>営業</td>
+                            <td>営業</td>
+                            <td>休業</td>
+                            <td>休業</td>
+                            <td>休業</td>
                         </tr>
                     </table>
                 </div>
