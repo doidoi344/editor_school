@@ -3,6 +3,7 @@
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\CourceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileController as ProfileOfAdminController;
 use Illuminate\Support\Facades\Route;
@@ -38,7 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/main', [MainController::class, 'index'])->name('main');
     Route::post('/reserve', [ReservationController::class, 'store']);
     Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
-    Route::get('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+    Route::post('/reservations/destroy', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+    Route::get('/cources', [CourceController::class, 'index'])->name('courses.index');
 });
 
 require __DIR__.'/auth.php';

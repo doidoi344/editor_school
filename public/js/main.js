@@ -40,6 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
       center: 'title',
       right: 'customMonthButton,customWeekButton'
     },
+    slotLabelFormat: {
+      hour: 'numeric',
+      minute: '2-digit',
+      omitZeroMinute: false,
+      meridiem: 'narrow'
+    },
     customButtons: {
       customPrevButton: {
         text: '< 前週', // 前の週ボタンのテキストを変更

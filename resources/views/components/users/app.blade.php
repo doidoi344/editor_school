@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
         <!-- googleアイコン読み込み -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <!-- jqueryCDN読み込み -->
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         

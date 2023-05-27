@@ -15,9 +15,6 @@
         <!-- fullcalendar読み込み -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css">
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js"></script>
-        
-
-        
     </head>
     <body>
         <header class="main-header">
@@ -70,7 +67,7 @@
                             <a class="sidebar-link" href="{{ route('reservations.index') }}">予約履歴</a>
                         </li>
                         <li id="line">
-                            <a class="sidebar-link" href="">講座一覧</a>
+                            <a class="sidebar-link" href="{{ route('courses.index') }}">講座一覧</a>
                         </li>
                     </ul>
                 </div>
