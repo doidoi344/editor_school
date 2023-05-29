@@ -21,7 +21,7 @@
         <header class="main-header">
             <div class="main-h-inner wrapper">
                 <div class="logo">
-                    <a href="{{ route('main') }}"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
+                    <a href="{{ route('admin.main') }}"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
                 </div>
                 <nav class="navigation">
                     <div>

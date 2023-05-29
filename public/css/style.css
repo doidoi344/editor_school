@@ -336,6 +336,7 @@ a {
     text-align: center;
 }
 .reservationForm-container h3 {
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 .reservationForm-container .form-group {
@@ -343,6 +344,7 @@ a {
 }
 .reservationForm-container label {
     display: block;
+    font-weight: bold;
     margin-bottom: 5px;
     text-align: left;
 }
@@ -356,6 +358,7 @@ a {
 .reservationForm-container button[type="submit"] {
     background-color: lightseagreen;
     color: #ffffff;
+    font-weight: bold;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -416,7 +419,7 @@ td.fc-timegrid-slot {
     color: #fff !important;
 } 
 .fc-col-header-cell-cushion {
-    font-weight: normal !important;
+    font-weight: bold !important;
     padding: 5px 10px !important; 
 } 
 .fc-scrollgrid-shrink-cushion {
@@ -522,7 +525,6 @@ td.fc-timegrid-slot {
     letter-spacing: 1.5px;
 }
 .complete-sign h1 span{
-    color: red;
     font-size: 2.5rem;
     padding: 0 15px;
 }
@@ -581,6 +583,7 @@ td.fc-timegrid-slot {
     padding: 15px;
 }
 .item {
+    position: relative;
     background-color: #fff;
     padding: 20px;
     text-align: center;
@@ -616,6 +619,260 @@ td.fc-timegrid-slot {
     height: 1px;
     background-color: #333; /* 下線の色を設定してください */
 }
+/* 管理者メイン画面(admin.main)
+---------------------------------------------------- */
+#admin-contents-title {
+    background: linear-gradient(45deg, #009efd 0%, #2af598 100%);
+}
+/* 受講生一覧画面(admin.users.index)
+---------------------------------------------------- */
+.users-list-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    padding: 15px;
+}
+/* 予約履歴の表 */
+.users-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #eaf0f5;
+    margin-bottom: 30px;
+}
+.users-list-table .th-bg {
+    background-color: steelblue;
+}
+.users-list-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.users-list-table th,
+.users-list-table td {
+    padding: 10px;
+    text-align: center;
+}
+.users-list-table th {
+    font-weight: bold;
+    color: #fff;
+}
+.users-list-table td {
+    border-bottom: 1px solid #ddd;
+    color: #555;
+}
+.users-list-table td input[type="checkbox"] {
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+/* 講座一覧画面(admin.courses.index)
+---------------------------------------------------- */
+/* 編集ボタン */
+.edit-btn-box {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.edit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    background-color: #FFD700;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    border: #333 solid 1px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.edit-button .material-symbols-outlined {
+    margin-right: 5px;
+    font-size: 22px;
+}
+.edit-button:hover {
+    background-color: #FFC300;
+}
+/* 削除ボタン */
+.destroy-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 6px;
+    background-color: #FFD700;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    border: #333 solid 1px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.destroy-button .material-symbols-outlined {
+    font-size: 22px;
+}
+.destroy-button:hover {
+    background-color: #FFC300;
+}
+.add-item {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+}
+.add-item-button {
+    transition: all 0.3s ease-in-out;
+}
+.add-item-button .material-symbols-outlined {
+    transition: all 0.3s ease-in-out;
+    font-size: 3rem;
+    color: #333;
+}
+.add-item-button:hover .material-symbols-outlined{
+    font-size: 4rem;
+}
+
+.edit-course-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* 講座編集画面(admin.courses.edit)
+---------------------------------------------------- */
+.edit-course-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-course-container .inner {
+    width: 100%;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 30px 50px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.edit-course-container h3 {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 1px #333 solid;
+}
+.edit-course-container {
+    text-align: center;
+}
+.edit-course-container form {
+    width: 100%;
+}
+.edit-course-container .form-group {
+    margin-bottom: 10px;
+}
+.edit-course-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
+    text-align: left;
+    font-size: 1.15rem;
+}
+.edit-course-container input[type="text"],
+.edit-course-container select,
+.edit-course-container textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.edit-course-container input[type="file"] {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 5px 0;
+}
+.edit-course-container button[type="submit"] {
+    background-color: orange;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+.edit-course-container button[type="submit"]:hover {
+    background-color: #FFC300;
+}
+
+/* 新規講座登録画面(admin.courses.create)
+---------------------------------------------------- */
+.create-course-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.create-course-container .inner {
+    width: 100%;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 30px 50px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.create-course-container h3 {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 1px #333 solid;
+}
+.create-course-container {
+    text-align: center;
+}
+.create-course-container form {
+    width: 100%;
+}
+.create-course-container .form-group {
+    margin-bottom: 10px;
+}
+.create-course-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
+    text-align: left;
+    font-size: 1.15rem;
+}
+.create-course-container input[type="text"],
+.create-course-container select,
+.create-course-container textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.create-course-container input[type="file"] {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 5px 0;
+}
+.create-course-container button[type="submit"] {
+    background-color: lightseagreen;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+.create-course-container button[type="submit"]:hover {
+    background-color: rgb(38, 194, 186);
+}
+
 /* フッター */
 .main-footer {
     background-color: #f2f2f2;

@@ -20,7 +20,7 @@
         <header class="main-header">
             <div class="main-h-inner wrapper">
                 <div class="logo">
-                    <img src="{{ asset('images/logo.png') }}" alt="logo">
+                <a href="{{ route('main') }}"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
                 </div>
                 <nav class="navigation">
                     <div>
@@ -89,28 +89,25 @@
                 <form id="reservationForm" action="" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="day">日付:</label>
+                        <label for="day">日付</label>
                         <input type="text" id="day" name="day">
                     </div>
-
                     <div class="form-group">
-                        <label for="reservation">講座選択:</label>
+                        <label for="reservation">講座選択</label>
                         <select name="reservation" id="reservation">
+                            <option value="選択してください">選択してください</option>
                             <option value="カット">カット</option>
                             <option value="トリミング">トリミング</option>
                         </select>
                     </div>
-
                     <div class="form-group">
-                        <label for="start_time">開始時刻:</label>
+                        <label for="start_time">開始時刻</label>
                         <input type="text" id="start_time" name="start_time">
                     </div>
-
                     <div class="form-group">
-                        <label for="end_time">終了時刻:</label>
+                        <label for="end_time">終了時刻</label>
                         <input type="text" id="end_time" name="end_time">
                     </div>
-
                     <div class="form-group">
                         <button type="submit">予約する</button>
                     </div>
