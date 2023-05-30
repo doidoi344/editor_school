@@ -25,7 +25,7 @@
                 </div>
                 <nav class="navigation">
                     <div>
-                        <form action="{{ route('logout') }}" method="POST">
+                        <form action="{{ route('admin.logout') }}" method="POST">
                             @csrf
                             <input type="submit" value="ログアウト" class="logout-button">
                         </form>
@@ -47,7 +47,7 @@
                 <div class="hamburger-links">
                     @auth
                     <div>
-                        <form action="{{ route('logout') }}" method="POST">
+                        <form action="{{ route('admin.logout') }}" method="POST">
                             @csrf
                             <input type="submit" value="ログアウト" class="s-nav-link">
                         </form>
@@ -101,7 +101,7 @@
             </div>
         </footer>
         <!-- js読み込み -->
-        <script src="{{ asset('js/script.js') }}" defer></script>
-        <script src="{{ asset('js/top.js') }}" defer></script>
+        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('js/top.js') }}"></script>
     </body>
 </html>

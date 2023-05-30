@@ -12,6 +12,7 @@ $(document).ready(function() {
         $('.hamburger-icon').removeClass('close');
       }
     });
+    
   
 });
 

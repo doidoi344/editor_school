@@ -23,6 +23,26 @@ ul {
 a {
     text-decoration: none;
 }
+.error ul{
+    padding: 0;
+    text-align: left;
+    color: red;
+    margin-bottom: 1rem;
+}
+.error li::before {
+    content: "・"; 
+    margin-right: 5px; 
+}
+.error p{
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+.error p .material-symbols-outlined{
+    margin-right: 5px;
+}
+
 /* トップ画面(top)
 ---------------------------------------------------- */
 /* 背景画像 */
@@ -420,9 +440,11 @@ td.fc-timegrid-slot {
 } 
 .fc-col-header-cell-cushion {
     font-weight: bold !important;
+    font-size: 1.15rem !important;
     padding: 5px 10px !important; 
 } 
 .fc-scrollgrid-shrink-cushion {
+    font-size: 1rem;
     padding: 2px 8px !important; 
 }
 
@@ -772,6 +794,13 @@ td.fc-timegrid-slot {
 }
 .edit-course-container .form-group {
     margin-bottom: 10px;
+}
+.edit-course-container .form-group p{
+    text-align: left;
+    font-size: 0.85rem;
+    padding-top: 5px;
+    font-weight: bold;
+    color: red;
 }
 .edit-course-container label {
     display: block;

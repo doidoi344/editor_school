@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserManagementController extends Controller
@@ -13,18 +14,28 @@ class UserManagementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.users.index');
+    {   
+        $users = User::all();
+
+        return view('admin.users.index', compact('users'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $request
-     * @return void
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
-    {
-        // 処理のみ
+    {   
+        // dd($request);
+
+        $userIds = $request->ids;
+        foreach ($userIds as $id) {
+            $user = User::find($id);
+            $user->delete();
+        }
+
+        return redirect()->route('admin.users.index');
     }
 }

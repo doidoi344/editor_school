@@ -16,9 +16,9 @@ use App\Http\Controllers\Admin\CourseManagementController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/admin', function () {
-    return view('admin.welcome');
-});
+// Route::get('/admin', function () {
+//     return view('admin.welcome');
+// });
 
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard', function () {
@@ -34,6 +34,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/courses', [CourseManagementController::class, 'index'])->name('courses.index');
         Route::get('/courses/{id}/edit', [CourseManagementController::class, 'edit'])->name('courses.edit');
         Route::post('/courses/{id}/update', [CourseManagementController::class, 'update'])->name('courses.update');
+        Route::get('/courses/{id}/destroy', [CourseManagementController::class, 'destroy'])->name('courses.destroy');
         Route::get('/courses/create', [CourseManagementController::class, 'create'])->name('courses.create');
         Route::post('/courses/store', [CourseManagementController::class, 'store'])->name('courses.store');
     });

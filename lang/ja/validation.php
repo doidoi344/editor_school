@@ -156,7 +156,11 @@ return [
     'attributes' => [
         'name' => 'ユーザー名',
         'email' => 'メールアドレス',
-        'password' => 'パスワード'
+        'password' => 'パスワード',
+        'title' => 'タイトル',
+        'image' => '画像',
+        'duration' => '授業時間',
+        'summary' => '説明'
     ],
 
 ];
