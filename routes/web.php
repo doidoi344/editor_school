@@ -34,8 +34,9 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/main', [MainController::class, 'index'])->name('main');
-    Route::post('/reserve', [ReservationController::class, 'store']);
-    Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
+    Route::post('/reserve', [ReservationController::class, 'store'])->name('reserve');
+    Route::get('/reservations/{userId}/index', [ReservationController::class, 'index'])->name('reservations.index');
+    Route::get('/eventsIndex', [ReservationController::class, 'eventsIndex'])->name('reservations.eventsIndex');
     Route::post('/reservations/destroy', [ReservationController::class, 'destroy'])->name('reservations.destroy');
     Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
 });

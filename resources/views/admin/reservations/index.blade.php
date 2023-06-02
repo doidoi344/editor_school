@@ -6,7 +6,7 @@
                 @csrf
                 <table class="reservation-history-table">
                     <thead>
-                        <tr class="th-bg">
+                        <tr class="th-bg" id="admin-reservation-title">
                             <th></th>
                             <th>日付</th>
                             <th>開始時刻</th>

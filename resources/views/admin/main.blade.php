@@ -14,6 +14,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <!-- fullcalendar読み込み -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js"></script>
     </head>
     <body>
@@ -46,7 +47,7 @@
                 <div class="hamburger-links">
                     @auth
                     <div>
-                        <form action="" method="POST">
+                        <form action="{{ route('admin.logout') }}" method="POST">
                             @csrf
                             <input type="submit" value="ログアウト" class="s-nav-link">
                         </form>
@@ -92,25 +93,30 @@
                 <form id="reservationForm" action="" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="day">日付</label>
-                        <input type="text" id="day" name="day">
+                        <label for="date">日付</label>
+                        <input type="text" id="date" name="date">
                     </div>
                     <div class="form-group">
-                        <label for="reservation">講座選択</label>
-                        <select name="reservation" id="reservation">
+                        <label for="course">講座選択</label>
+                        <select name="course" id="course">
                             <option value="選択してください">選択してください</option>
-                            <option value="カット">カット</option>
-                            <option value="トリミング">トリミング</option>
+                            @foreach ($courses as $course)
+                                <option value="{{ $course->title }}" data-duration="{{ $course->duration }}">{{ $course->title }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="start_time">開始時刻</label>
-                        <input type="text" id="start_time" name="start_time">
+                        <select name="start_time" id="start_time">
+                            <option value="選択してください">選択してください</option>
+                            @for ($hour = 9; $hour <= 18; $hour++)
+                                <option value="{{ sprintf('%02d:%02d', $hour, 0) }}">{{ sprintf('%02d:%02d', $hour, 0) }}</option>
+                            @endfor
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="end_time">終了時刻</label>
                         <input type="text" id="end_time" name="end_time">
-                    </div>
                     </div>
                 </form>
             </div>
@@ -139,7 +145,6 @@
                             <th>金曜日</th>
                             <th>土曜日</th>
                             <th>日曜日</th>
-                            <th>祝・祭日</th>
                         </tr>
                         <tr>
                             <td>9:00 - 18:00</td>
@@ -148,7 +153,6 @@
                             <td>営業</td>
                             <td>営業</td>
                             <td>営業</td>
-                            <td>休業</td>
                             <td>休業</td>
                             <td>休業</td>
                         </tr>

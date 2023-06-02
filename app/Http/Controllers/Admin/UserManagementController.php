@@ -28,7 +28,6 @@ class UserManagementController extends Controller
      */
     public function destroy(Request $request)
     {   
-        // dd($request);
 
         $userIds = $request->ids;
         foreach ($userIds as $id) {

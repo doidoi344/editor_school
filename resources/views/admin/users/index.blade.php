@@ -23,7 +23,7 @@
                     </tbody>
                 </table>
                 <div class="delete-button-container">
-                    <button type="submit" class="delete-button">
+                    <button type="submit" class="unregister-button">
                         <span class="material-symbols-outlined">delete</span>登録解除
                     </button>
                 </div>

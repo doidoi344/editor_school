@@ -10,10 +10,14 @@
         <meta name="description" content="" />
         <!-- css読み込み -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <!-- googleアイコン読み込み -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <!-- jqueryCDN読み込み -->
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <!-- fullcalendar読み込み -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js"></script>
     </head>
     <body>
@@ -23,6 +27,7 @@
                 <a href="{{ route('main') }}"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
                 </div>
                 <nav class="navigation">
+                    <p class="user-name">ユーザー名： <span>{{ $userName }}</span></p>
                     <div>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
@@ -64,7 +69,7 @@
                 <div class="side-container">
                     <ul>
                         <li>
-                            <a class="sidebar-link" href="{{ route('reservations.index') }}">予約履歴</a>
+                            <a class="sidebar-link" href="{{ route('reservations.index',['userId' => $userId]) }}">予約履歴</a>
                         </li>
                         <li id="line">
                             <a class="sidebar-link" href="{{ route('courses.index') }}">講座一覧</a>
@@ -86,29 +91,49 @@
         <div id="reservationForm-overlay">
             <div class="reservationForm-container">
                 <h3>予約フォーム</h3>
-                <form id="reservationForm" action="" method="post">
+                @if ($errors->any())
+                    <div class="error">
+                        <ul>
+                            <p>
+                            <span class="material-symbols-outlined">verified</span>確認
+                            </p>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <div id="error-messages"></div> <!-- エラーメッセージ表示用 -->
+                <form id="reservationForm" action="{{ route('reserve') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="day">日付</label>
-                        <input type="text" id="day" name="day">
+                        <label for="date">日付</label>
+                        <input type="text" id="date" name="date">
                     </div>
                     <div class="form-group">
-                        <label for="reservation">講座選択</label>
-                        <select name="reservation" id="reservation">
-                            <option value="選択してください">選択してください</option>
-                            <option value="カット">カット</option>
-                            <option value="トリミング">トリミング</option>
+                        <label for="course">講座選択</label>
+                        <select name="course" id="course">
+                            <option value="">選択してください</option>
+                            @foreach ($courses as $course)
+                                <option value="{{ $course->title }}" data-duration="{{ $course->duration }}">{{ $course->title }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="start_time">開始時刻</label>
-                        <input type="text" id="start_time" name="start_time">
+                        <select name="start_time" id="start_time">
+                            <option value="">選択してください</option>
+                            @for ($hour = 9; $hour <= 17; $hour++)
+                                <option value="{{ sprintf('%02d:%02d', $hour, 0) }}">{{ sprintf('%02d:%02d', $hour, 0) }}</option>
+                            @endfor
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="end_time">終了時刻</label>
-                        <input type="text" id="end_time" name="end_time">
+                        <input type="text" id="end_time" name="end_time" readonly="readonly">
                     </div>
                     <div class="form-group">
+                        <input type="hidden" name="userId" value="{{ $userId }}">
                         <button type="submit">予約する</button>
                     </div>
                 </form>
@@ -138,7 +163,6 @@
                             <th>金曜日</th>
                             <th>土曜日</th>
                             <th>日曜日</th>
-                            <th>祝・祭日</th>
                         </tr>
                         <tr>
                             <td>9:00 - 18:00</td>
@@ -147,7 +171,6 @@
                             <td>営業</td>
                             <td>営業</td>
                             <td>営業</td>
-                            <td>休業</td>
                             <td>休業</td>
                             <td>休業</td>
                         </tr>

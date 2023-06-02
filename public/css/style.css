@@ -42,6 +42,14 @@ a {
 .error p .material-symbols-outlined{
     margin-right: 5px;
 }
+#error-messages {
+    text-align: left;
+    color: red;
+}
+#error-messages li::before {
+    content: "・"; 
+    margin-right: 5px; 
+}
 
 /* トップ画面(top)
 ---------------------------------------------------- */
@@ -106,14 +114,31 @@ a {
 .login-button:hover, .signup-button:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
-/*ハンバーガーメニュー */
 .navigation {
     display: flex;
+    align-items: center;
+}
+.navigation .user-name {
+    margin-right: 30px;
+    position: relative;
+}
+.navigation .user-name :after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    height: 1px;
+}
+.user-name span {
+    font-size: 1.15rem;
+    font-weight: bold;
 }
 .nav-link {
     margin-left: 10px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: bold;
     color: white;
     background-color: blue !important;
@@ -124,6 +149,7 @@ a {
 .nav-link:hover {
     background-color: darkblue !important;
 }
+/*ハンバーガーメニュー */
 .hamburger-menu {
     display: none;
     z-index: 200;
@@ -271,7 +297,7 @@ a {
 }
 .contents-title {
     max-width: 100%;
-    background: linear-gradient(45deg, #2af598 0%, #009efd 100%);
+    background: linear-gradient(45deg, #16f18f 0%, #009efd 100%);
 }
 #menu-title{
     text-align: center;
@@ -369,6 +395,7 @@ a {
     text-align: left;
 }
 .reservationForm-container input[type="text"],
+.reservationForm-container input[type="time"],
 .reservationForm-container select {
     width: 100%;
     padding: 10px;
@@ -392,6 +419,7 @@ a {
 #calendar {
     font-size: 0.95rem; /* カレンダーの文字サイズを調整 */
 }
+
 td.fc-day-sat {
     background-color: #eaf4ff;
 }
@@ -400,6 +428,9 @@ td.fc-day-sun {
 }
 .fc-daygrid-day-number {
     color: black;
+}
+.fc-daygrid-event-harness {
+    display: none !important;
 }
 td.fc-day-sat .fc-daygrid-day-number {
     color: blue;
@@ -435,8 +466,8 @@ td.fc-timegrid-slot {
     opacity: 0;
 }
 .fc-col-header {
-    background-color: cornflowerblue;
-    color: #fff !important;
+    /* background: linear-gradient(45deg, #2af598 0%, #009efd 100%); */
+    color: #333 !important;
 } 
 .fc-col-header-cell-cushion {
     font-weight: bold !important;
@@ -447,12 +478,12 @@ td.fc-timegrid-slot {
     font-size: 1rem;
     padding: 2px 8px !important; 
 }
-
 .fc-v-event {
     border: none !important;
-    background-color: lightseagreen !important; 
-    opacity: 0.8;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    /* background: linear-gradient(60deg, rgb(175, 174, 174) 10%, rgb(182, 181, 181) 100%); */
+    background: linear-gradient(60deg, #43b3f8 0%, #28abfd 100%);
+    opacity: 0.7;
+    
 }
 .fc-event-main {
     border-radius: 8% !important; 
@@ -483,14 +514,15 @@ td.fc-timegrid-slot {
     width: 100%;
     border-collapse: collapse;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    background-color: #eaf0f5;
+    background-color: #f0f9ff;
     margin-bottom: 30px;
 }
 .reservation-history-table .th-bg {
-    background-color: lightseagreen;
+    background: linear-gradient(45deg, #2af598 0%, #009efd 100%);
+    font-size: 1.25rem;
 }
 .reservation-history-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #fff;
 }
 .reservation-history-table th,
 .reservation-history-table td {
@@ -653,6 +685,30 @@ td.fc-timegrid-slot {
     font-weight: bold;
     padding: 15px;
 }
+/* 登録解除ボタン */
+.unregister-button {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.unregister-button .material-symbols-outlined {
+    margin-right: 5px;
+}
+.unregister-button:hover {
+    background-color: #ff3333;
+}
+/* 受講生予約一覧画面(admin.reservations.index)
+---------------------------------------------------- */
+#admin-reservation-title {
+    background: linear-gradient(45deg, #009efd 0%, #2af598 100%);
+}
 /* 予約履歴の表 */
 .users-list-table {
     width: 100%;
@@ -662,7 +718,8 @@ td.fc-timegrid-slot {
     margin-bottom: 30px;
 }
 .users-list-table .th-bg {
-    background-color: steelblue;
+    background: linear-gradient(45deg, #009efd 0%, #2af598 100%);
+    font-size: 1.25rem;
 }
 .users-list-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
@@ -756,7 +813,6 @@ td.fc-timegrid-slot {
 .add-item-button:hover .material-symbols-outlined{
     font-size: 4rem;
 }
-
 .edit-course-container {
     display: flex;
     flex-direction: column;
@@ -1124,8 +1180,11 @@ td.fc-timegrid-slot {
         font-size: 0.75em; /* カレンダーの文字サイズを調整 */
     }
     .fc-media-screen {
-        width: 450px;
+        width: 600px;
     }
+    .fc-col-header-cell-cushion {
+        font-size: 1rem !important;
+    } 
     /* 予約履歴画面(reservations.index)
     ---------------------------------------------------- */
     .reservation-history-container {

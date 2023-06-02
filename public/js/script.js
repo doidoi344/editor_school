@@ -13,9 +13,15 @@ $(document).ready(function() {
       }
     }),
     $('.delete-button').click(function(event) {
-        var confirmation = confirm('登録解除してもよろしいですか？');
+        var confirmation = confirm('キャンセルしてもよろしいですか？');
         if (!confirmation) {
           event.preventDefault();
       }
-    });
+    }),
+    $('.unregister-button').click(function(event) {
+      var confirmation = confirm('登録解除してもよろしいですか？');
+      if (!confirmation) {
+        event.preventDefault();
+    }
+  });
 });

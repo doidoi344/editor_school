@@ -160,7 +160,10 @@ return [
         'title' => 'タイトル',
         'image' => '画像',
         'duration' => '授業時間',
-        'summary' => '説明'
+        'summary' => '説明',
+        'course' => '講座',
+        'start_time' => '開始時刻',
+        'end_time' => '終了時刻'
     ],
 
 ];
