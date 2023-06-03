@@ -152,7 +152,8 @@ class CourseManagementController extends Controller
     public function destroy($id)
     {
         $course = Course::find($id);
-        $course->delete();
+        $course->reservations()->delete(); // 関連する予約情報を削除
+        $course->delete(); // コースを削除
 
         $imagePath = $course->image_path; // 画像ファイルのパスを取得
         Storage::disk('public')->delete($imagePath); // 画像ファイルをstorageディレクトリから削除

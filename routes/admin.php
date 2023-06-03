@@ -16,10 +16,6 @@ use App\Http\Controllers\Admin\CourseManagementController;
 use Illuminate\Support\Facades\Route;
 
 
-// Route::get('/admin', function () {
-//     return view('admin.welcome');
-// });
-
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard', function () {
         return view('admin.dashboard');

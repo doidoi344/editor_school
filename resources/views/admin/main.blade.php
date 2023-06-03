@@ -24,6 +24,7 @@
                     <a href="{{ route('admin.main') }}"><img src="{{ asset('images/logo.png') }}" alt="logo"></a>
                 </div>
                 <nav class="navigation">
+                    <p class="user-name">管理者名： <span>{{ $admin_user_name}}</span></p>
                     <div>
                         <form action="{{ route('admin.logout') }}" method="POST">
                             @csrf
@@ -86,20 +87,33 @@
             </section>
         </div>
 
-        <!-- 予約フォーム -->
-        <div id="reservationForm-overlay">
+         <!-- 予約フォーム -->
+         <div id="reservationForm-overlay">
             <div class="reservationForm-container">
                 <h3>予約フォーム</h3>
-                <form id="reservationForm" action="" method="post">
+                @if ($errors->any())
+                    <div class="error">
+                        <ul>
+                            <p>
+                            <span class="material-symbols-outlined">verified</span>確認
+                            </p>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <div id="error-messages"></div> <!-- エラーメッセージ表示用 -->
+                <form id="reservationForm" action="{{ route('reserve') }}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="date">日付</label>
-                        <input type="text" id="date" name="date">
+                        <input type="text" id="date" name="date" readonly="readonly">
                     </div>
                     <div class="form-group">
                         <label for="course">講座選択</label>
                         <select name="course" id="course">
-                            <option value="選択してください">選択してください</option>
+                            <option value="">選択してください</option>
                             @foreach ($courses as $course)
                                 <option value="{{ $course->title }}" data-duration="{{ $course->duration }}">{{ $course->title }}</option>
                             @endforeach
@@ -108,15 +122,15 @@
                     <div class="form-group">
                         <label for="start_time">開始時刻</label>
                         <select name="start_time" id="start_time">
-                            <option value="選択してください">選択してください</option>
-                            @for ($hour = 9; $hour <= 18; $hour++)
+                            <option value="">選択してください</option>
+                            @for ($hour = 9; $hour <= 17; $hour++)
                                 <option value="{{ sprintf('%02d:%02d', $hour, 0) }}">{{ sprintf('%02d:%02d', $hour, 0) }}</option>
                             @endfor
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="end_time">終了時刻</label>
-                        <input type="text" id="end_time" name="end_time">
+                        <input type="text" id="end_time" name="end_time" readonly="readonly">
                     </div>
                 </form>
             </div>

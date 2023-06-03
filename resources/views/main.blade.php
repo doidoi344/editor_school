@@ -78,6 +78,9 @@
                 </div>
             </aside>
             <section>
+                <div id="message-overlay">
+                    <div id="message-box"></div>
+                </div>
                 <div class="contents-title">
                     <h2>カレンダー</h2>
                 </div>
@@ -108,7 +111,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="date">日付</label>
-                        <input type="text" id="date" name="date">
+                        <input type="text" id="date" name="date" readonly="readonly">
                     </div>
                     <div class="form-group">
                         <label for="course">講座選択</label>

@@ -259,41 +259,41 @@ a {
 /* メイン画面(main)
 ---------------------------------------------------- */
 .main-header {
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 15px 10px;
-  background-color: #fff;
-  box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .main-h-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 /* ログアウトボタン */
 .logout-button {
-  border: none;
-  font-weight: bold;
-  color: white;
-  background-color: blue;
-  padding: 6px 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease-in-out;
+    border: none;
+    font-weight: bold;
+    color: white;
+    background-color: blue;
+    padding: 6px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .logout-button:hover {
-  background-color: darkblue;
+    background-color: darkblue;
 }
 /* Menuとカレンダー */
 #primary-container {
-  margin-top: 110px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 60px;
+    margin-top: 110px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
 }
 .contents-title {
     max-width: 100%;
@@ -309,15 +309,15 @@ a {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 #primary-container aside{
-  width:16%;
-  height: 50%;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  border-radius: 6px;
+    width:16%;
+    height: 50%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 6px;
 }
 .side-container {
-  text-align: center;
+    text-align: center;
 }
 .side-container li{
     text-align: center;
@@ -340,18 +340,47 @@ a {
     opacity: 0.9;
 }
 #primary-container section{
-  width:82%;
-  height: auto;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  border-radius: 6px;
+    position: relative;
+    width:82%;
+    height: auto;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 6px;
 }
 .calendar-container {
-  text-align: center;
-  padding: 20px 30px;
-  height: 450px;
-  overflow: auto; /* カレンダーがはみ出た場合にスクロールバーを表示 */
+    text-align: center;
+    padding: 20px 30px;
+    height: 450px;
+    overflow: auto; /* カレンダーがはみ出た場合にスクロールバーを表示 */
+}
+/* 予約完了メッセージ */
+#message-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#message-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+#message-box {
+    background-color: orange;
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
 }
 /* 予約フォーム */
 #reservationForm-overlay {
@@ -755,7 +784,7 @@ td.fc-timegrid-slot {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 12px;
+    padding: 4px 10px;
     background-color: #FFD700;
     font-size: 1rem;
     font-weight: bold;
@@ -777,7 +806,7 @@ td.fc-timegrid-slot {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 6px;
+    padding: 4px 4px;
     background-color: #FFD700;
     font-size: 1rem;
     font-weight: bold;
@@ -818,7 +847,6 @@ td.fc-timegrid-slot {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
 /* 講座編集画面(admin.courses.edit)
@@ -855,8 +883,7 @@ td.fc-timegrid-slot {
     text-align: left;
     font-size: 0.85rem;
     padding-top: 5px;
-    font-weight: bold;
-    color: red;
+    color: #333;
 }
 .edit-course-container label {
     display: block;
@@ -919,6 +946,12 @@ td.fc-timegrid-slot {
 }
 .create-course-container form {
     width: 100%;
+}
+#preview {
+    width: 85%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
 }
 .create-course-container .form-group {
     margin-bottom: 10px;

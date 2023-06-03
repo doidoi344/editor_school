@@ -19,9 +19,18 @@ $(document).ready(function() {
       }
     }),
     $('.unregister-button').click(function(event) {
-      var confirmation = confirm('登録解除してもよろしいですか？');
-      if (!confirmation) {
-        event.preventDefault();
-    }
-  });
+        var confirmation = confirm('登録解除してもよろしいですか？');
+        if (!confirmation) {
+          event.preventDefault();
+      }
+    }),
+    $('#image').on('change', function(e) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#preview').attr('src', e.target.result).show();
+        };
+        reader.readAsDataURL(e.target.files[0]);
+     });
+
 });
+

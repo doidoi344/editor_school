@@ -18,7 +18,7 @@ class Course extends Model
      */
     public function reservations() 
     {
-        return $this->hasMany(Course::class);
+        return $this->hasMany(Reservation::class);
     }
      
 }

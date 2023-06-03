@@ -20,6 +20,7 @@
                     <div class="form-group">
                         <label for="course-image">アップロードする画像を選択してください (PNG, JPG)</label>
                         <input type="file" id="image" name="image" accept="image/png, image/jpeg">
+                        <img id="preview" src="#" alt="Preview Image" style="display: none;">
                     </div>
                     <div class="form-group">
                         <label for="title">タイトル</label>

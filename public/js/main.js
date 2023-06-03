@@ -51,7 +51,7 @@ function updateEndtime() {
     // 終了時刻を設定
     var endTime = ('0' + endHour).slice(-2) + ':' + ('0' + endMinute).slice(-2);
     endTimeInput.value = endTime;
-    // console.log(endTime);
+    
   } else if(startTime == "" || courseValue == ""){
       endTimeInput.value = "";
   } 
@@ -181,6 +181,18 @@ document.addEventListener('DOMContentLoaded', function() {
             closeForm();
             calendar.refetchEvents();
             form.reset();
+
+            // メッセージの表示
+            var messageBox = document.getElementById('message-box');
+            messageBox.innerText = '予約が完了しました';
+            // 予約成功時の処理
+            var overlayElement = document.getElementById('message-overlay');
+            overlayElement.classList.add('active');
+
+            setTimeout(function() {
+              overlayElement.classList.remove('active');
+            }, 1500); // 1.5秒後にオーバーレイを非表示にする
+            
           }
 
 

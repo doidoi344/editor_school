@@ -20,6 +20,7 @@
                     <div class="form-group">
                         <label for="image">画像</label>
                         <input type="file" id="image" name="image">
+                        <img id="preview" src="#" alt="Preview Image" style="display: none;">
                         <p>※ 未選択の場合は編集前の画像が設定されます。</p>
                     </div>
                     <div class="form-group">
