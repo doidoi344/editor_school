@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Course;
 use App\Models\User;
+use App\Mail\ReservationCompleted;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Mail;
 
 class ReservationController extends Controller
 {
@@ -80,6 +82,7 @@ class ReservationController extends Controller
             return Response::json(['errors' => $errors]);
         }
 
+
         // 予約の重複チェック
         $date = $request->date;
         $start_time = $request->start_time;
@@ -112,6 +115,13 @@ class ReservationController extends Controller
             return Response::json(['errors' => ['text' => $errors]]);
         }
 
+        // 営業時間内かどうかのチェック
+        if($end_time >= 19) {
+            $errors = '営業時間外のためコースを選びなおしてください。';
+            return Response::json(['errors' => ['text' => $errors]]);
+        }
+        
+
         // フォームデータから必要な値を取得
         $date = $request->date;
         $course = $request->course;
@@ -131,6 +141,21 @@ class ReservationController extends Controller
         $reservation->course_id = $course->id;
         
         $reservation->save();
+
+        // メール送信処理
+        $user_name = auth()->user()->name;
+        $user_email = auth()->user()->email;
+        $course_title = $request->course;
+
+        $data = ['user_name' => $user_name,
+                 'date' => $date,
+                 'course_title' => $course_title,
+                 'start_time' => $start_time,
+                 'end_time' => $end_time
+                ];
+
+        // 実行する時にコメントアウト解除        
+        // Mail::to($user_email)->send(new ReservationCompleted($data));
 
         return response()->json();
 
