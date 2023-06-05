@@ -50,7 +50,7 @@ class CourseManagementController extends Controller
 
         $validatedData = $request->validate([
             'image' => ['required'],
-            'title' => ['required', 'max:15'],
+            'title' => ['required', 'unique:courses', 'max:15'],
             'duration' => ['required'],
             'summary' => ['required', 'max:70']
         ]);

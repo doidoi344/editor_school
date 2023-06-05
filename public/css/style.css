@@ -738,6 +738,40 @@ td.fc-timegrid-slot {
 #admin-reservation-title {
     background: linear-gradient(45deg, #009efd 0%, #2af598 100%);
 }
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-container .inner {
+    max-width: 100%;
+}
+.search-container form {
+    display:flex;
+}
+.search-container input[type="text"] {
+    padding: 6px;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+.search-container button {
+    padding: 6px 12px;
+    background-color: rgb(44, 44, 253);
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-left: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+.search-container button:hover {
+    background-color: navy;
+}
+#no-hit {
+    padding: 10px 0;
+    font-size: 1.25rem;
+}
+
 /* 予約履歴の表 */
 .users-list-table {
     width: 100%;
@@ -1239,6 +1273,14 @@ td.fc-timegrid-slot {
         font-size: 1.6rem;
         padding: 0 5px;
     }
+    /*　受講生予約一覧画面(admin.reservations.index)
+    ---------------------------------------------------- */
+    .search-container {
+        display: block;
+        text-align: left;
+        margin-bottom: 1rem;
+    }
+    
     /* フッター */
     .footer-inner {
         display: flex;

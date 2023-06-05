@@ -12,13 +12,25 @@ class ReservationManagementController extends Controller
 {
     /**
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
+        // dd($request);
         $reservations = Reservation::orderBy('date')->orderBy('start_time')->get();
 
-        return view('admin.reservations.index', compact('reservations'));
+        $keyword = $request->keyword;
+        if(!empty($keyword)) {
+            $query = Reservation::orderBy('date')->orderBy('start_time');
+            $query->where('date', 'LIKE', "%{$keyword}%")
+            ->orWhereHas('user', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', "%{$keyword}%");
+            });
+            $reservations = $query->get();
+        }
+
+        return view('admin.reservations.index', compact('reservations', 'keyword'));
     }
 
     /**

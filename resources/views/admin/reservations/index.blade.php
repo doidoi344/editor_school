@@ -1,6 +1,14 @@
 <x-admins.app>
     <div id="secoundary-container" class="wrapper">
-    <h1 class="reservation-history-title">予約一覧</h1>
+        <div class="search-container">   
+            <h1 class="reservation-history-title">予約一覧</h1>
+            <div class="inner">
+                <form action="{{ route('admin.reservations.index') }}" method="GET">
+                    <input type="text" id="keyword" name="keyword" value="{{ isset($keyword) ? $keyword : '' }}" placeholder="キーワードを入力">
+                    <button type="submit" name="search">検索</button>
+                </form>
+            </div>
+        </div>    
         <div class="reservation-history-container">
             <form action="{{ route('admin.reservations.destroy') }}" method="POST" id="deleteForm">
                 @csrf
@@ -16,7 +24,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($reservations as $reservation) 
+                        @forelse ($reservations as $reservation) 
                             <tr>
                                 <td><input type="checkbox" name="ids[]" value="{{ $reservation->id }}"></td>
                                 <td>{{ $reservation->date }}</td>
@@ -25,7 +33,9 @@
                                 <td>{{ $reservation->user->name }}</td>
                                 <td>{{ $reservation->course->title }}</td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <p id="no-hit">検索結果はありません。</p>
+                        @endforelse
                     </tbody>
                 </table>
                 <div class="delete-button-container">

@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="duration">授業時間（分）</label>
                         <select name="duration" id="duration">
-                            <option value="{{ session()->has('duration') ? session('duration') : '選択してください' }}">{{ session()->has('duration') ? session('duration') : '選択してください' }}</option>
+                            <option value="{{ session()->has('duration') ? session('duration') : '' }}">{{ session()->has('duration') ? session('duration') : '選択してください' }}</option>
                             <option value="60">60</option>
                             <option value="120">120</option>
                             <option value="180">180</option>
