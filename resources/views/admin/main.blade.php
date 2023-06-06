@@ -179,6 +179,6 @@
         </footer>
         <!-- js読み込み -->
         <script src="{{ asset('js/top.js') }}" defer></script>
-        <script src="{{ asset('js/main.js') }}" defer></script>
+        <script src="{{ asset('js/admin.main.js') }}" defer></script>
     </body>
 </html>

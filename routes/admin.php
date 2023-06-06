@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\CourseManagementController;
 use Illuminate\Support\Facades\Route;
 
 
+
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
@@ -26,6 +27,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('/users', [UserManagementController::class, 'index'])->name('users.index');
         Route::post('/users/destroy', [UserManagementController::class, 'destroy'])->name('users.destroy');
         Route::get('/reservations/index', [ReservationManagementController::class, 'index'])->name('reservations.index');
+        Route::get('/eventsIndex', [ReservationManagementController::class, 'eventsIndex'])->name('reservations.eventsIndex');
         Route::post('/reservations/destroy', [ReservationManagementController::class, 'destroy'])->name('reservations.destroy');
         Route::get('/courses', [CourseManagementController::class, 'index'])->name('courses.index');
         Route::get('/courses/{id}/edit', [CourseManagementController::class, 'edit'])->name('courses.edit');
