@@ -6,6 +6,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileController as ProfileOfAdminController;
+use App\Http\Controllers\LoginWithGoogleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Google認証
+Route::get("auth/google", [LoginWithGoogleController::class, 'redirectToGoogle']);
+Route::get("auth/google/callback", [LoginWithGoogleController::class, 'handleGoogleCallback']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -43,7 +48,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
 });
 
+
+
 require __DIR__.'/auth.php';
 
 // admin用のルート
 require __DIR__.'/admin.php';
+// 追加
+
+
+
+
