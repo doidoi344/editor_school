@@ -10,6 +10,8 @@ use App\Mail\ReservationCompleted;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ReservationController extends Controller
 {
@@ -132,15 +134,22 @@ class ReservationController extends Controller
         // 講座一覧から該当のレコード情報を抽出
         $course = Course::where('title', $request->course)->first();
 
-        // Reservationsテーブルにデータを保存する
-        $reservation = new Reservation();
-        $reservation->date = $date;
-        $reservation->start_time = $start_time;
-        $reservation->end_time = $end_time;
-        $reservation->user_id = $user_id;
-        $reservation->course_id = $course->id;
-        
-        $reservation->save();
+        try{
+            $user = DB::transaction(function () use($date, $start_time, $end_time, $user_id, $course) {
+                // Reservationsテーブルにデータを保存する
+                $reservation = new Reservation();
+                $reservation->date = $date;
+                $reservation->start_time = $start_time;
+                $reservation->end_time = $end_time;
+                $reservation->user_id = $user_id;
+                $reservation->course_id = $course->id;
+                $reservation->save();
+            });
+        } catch(\Throwable $e) {
+            Log::error($e);
+            throw $e;
+        }
+
 
         // メール送信処理
         $user_name = auth()->user()->name;
