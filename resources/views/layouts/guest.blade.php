@@ -21,9 +21,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 ">
             <div>
                 <div style="width:300px; margin-bottom: 20px;">
-                    <a href="/admin">
-                        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                    </a>
+                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 </div>
             </div>
 
