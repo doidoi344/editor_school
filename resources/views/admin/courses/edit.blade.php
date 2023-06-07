@@ -33,6 +33,7 @@
                             <option value="{{ session()->has('duration') ? session('duration') : $course->duration }}">{{ session()->has('duration') ? session('duration') : $course->duration }}</option>
                             <option value="60">60</option>
                             <option value="120">120</option>
+                            <option value="120">180</option>
                         </select>
                     </div>
                     <div class="form-group">

@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     locale: 'ja', // ロケールを日本語に設定
     firstDay: 1, // 月曜日を週の先頭に設定
     slotMinTime: '09:00:00', // 例: 9時から
-    slotMaxTime: '19:00:00', // 例: 18時まで
+    slotMaxTime: '18:00:00', // 例: 18時まで
     slotDuration: '01:00:00', // スロットの時間間隔を1時間に設定
     height: 'auto', // カレンダーの高さを自動調整
     contentHeight: 'auto', // コンテンツの高さを自動調整
