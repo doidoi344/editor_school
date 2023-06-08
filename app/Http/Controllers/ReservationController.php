@@ -164,7 +164,7 @@ class ReservationController extends Controller
                 ];
 
         // 実行する時にコメントアウト解除        
-        // Mail::to($user_email)->send(new ReservationCompleted($data));
+        Mail::to($user_email)->send(new ReservationCompleted($data));
 
         return response()->json();
 
